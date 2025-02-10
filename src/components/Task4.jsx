@@ -5,8 +5,10 @@ import { MdModeEdit } from "react-icons/md";
 function Task4() {
     const [list, setList] = useState([])
     const [editId, setEditId] = useState(null)
-
+    const [addExperience, setExperiecne] = useState([])
+    const [selected, setSelected] = useState(true)
     const [employee, setEmployee] = useState({
+        id: Date.now(),
         empId: '',
         firstname: '',
         lastname: '',
@@ -42,7 +44,11 @@ function Task4() {
         )
 
     }
-    console.log(employee)
+    const addEmp = () => {
+        const updateExpeience = [...addExperience, { company: '', role: '', experience: '', startDate: '', endDate: '' }]
+        setExperiecne(updateExpeience)
+    }
+    console.log(employee.addExperience)
     return (
 
         <div>
@@ -50,18 +56,26 @@ function Task4() {
                 <div className='emp-experience1'>
                     <div className='container1'>
 
-                        <form onSubmit={handleSubmit}>
+                        <form className='form' onSubmit={handleSubmit}>
 
-                            <input type='text' placeholder='Id' name='empId' value={employee.empId}
+                            <div> <input type='text' placeholder='Id' name='empId' value={employee.empId}
                                 onChange={handleChange} />
-                            <input type='text' placeholder='First Name' name='firstname' value={employee.firstname}
-                            onChange={handleChange} />
-                            <input type='text' placeholder='Last Name' name='lastname' value={employee.lastname}
-                            onChange={handleChange} />
-                            <input type='text' placeholder='Email' name='email' value={employee.email}
-                            onChange={handleChange}/>
+                                <input type='text' placeholder='First Name' name='firstname' value={employee.firstname}
+                                    onChange={handleChange} />
+                                <input type='text' placeholder='Last Name' name='lastname' value={employee.lastname}
+                                    onChange={handleChange} />
+                            </div>
                             <div>
-                            <button>Submit</button>
+
+                                <input type='text' placeholder='Email' name='email' value={employee.email}
+                                    onChange={handleChange} />
+                                     <input type='text' placeholder='gender' name='gender' value={employee.gender}
+                                    onChange={handleChange} />
+                                     <input type='text' placeholder='Role' name='role' value={employee.role}
+                                    onChange={handleChange} />
+                            </div>
+                            <div id='submit'>
+                                <button type='submit'  id='btn-submit'>Submit</button>
 
                             </div>
                         </form>
@@ -72,17 +86,32 @@ function Task4() {
                     <div className='container'>
                         <div className='title1'><h4>Add Experience</h4>
                             <span className='expand'>+expand</span></div>
-                        <div className='experience'>
-                            <input type='text' placeholder='Company' />
-                            <input type='text' placeholder='Role' />
-                            <input type='text' placeholder='Experience' />
-                        </div>
-                        <div >
-                            start date<input type='date' />
-                            end date <input type='date' />
-                            notice period<input type='text' />
-                        </div>
-                        <button className='btn'>+add</button>
+                        {
+                            selected &&
+                            <div>
+                                {
+                                    addExperience.map((add, i) => {
+                                        return (
+                                            <div className='experiecne'>
+                                                <div className='experience'>
+                                                    <input type='text' placeholder='Company' />
+                                                    <input type='text' placeholder='Role' />
+                                                    <input type='text' placeholder='Experience' />
+                                                </div>
+                                                <div className='date'>
+                                                    <div> start date<input type='date' /></div>
+                                                    <div style={{ paddingRight: '600px' }}>
+                                                        end date <input type='date' /></div>
+                                                </div>
+                                            </div>
+
+                                        )
+                                    })
+                                }
+                            </div>
+                        }
+                        <button className='btn' onClick={addEmp}>+add</button>
+
 
                     </div>
                 </div>

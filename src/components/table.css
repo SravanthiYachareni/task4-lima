@@ -130,11 +130,13 @@ tr:hover {
     justify-content: space-between;
     padding-top: 4px;
 }
-.experience {
-    display: inline-block;
-  padding: 5px;
-   justify-content: space-between;
-
+.form input {
+    
+    padding: 8px 20px;
+    margin: 8px 0;
+    /* box-sizing: border-box; */
+    border: 3px solid #ccc;
+    /* outline: none; */
 }
 .title1 {
     display: flex;
@@ -170,3 +172,26 @@ tr:hover {
     
     box-shadow: 0px 5px 5px #ccc;
 }
+#submit {
+    text-align:center;
+}
+#btn-submit {
+     background-color: blue;
+     color: white;
+     border-color: blue;
+     cursor: pointer;
+     width: 10%;
+     border-radius: 8px;
+     
+}
+::placeholder {
+
+   font-size: medium;
+  }
+  .experience  input {
+     border: 3px solid #ddd;
+     box-sizing: border-box;
+     padding: 5px 0;
+     
+     ;
+  }
