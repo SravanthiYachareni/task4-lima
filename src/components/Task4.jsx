@@ -6,7 +6,7 @@ function Task4() {
     const [list, setList] = useState([])
     const [editId, setEditId] = useState(null)
     const [addExperience, setExperiecne] = useState([])
-    const [selected, setSelected] = useState(true)
+    const [selected, setSelected] = useState(false)
     const [employee, setEmployee] = useState({
         id: Date.now(),
         empId: '',
@@ -45,10 +45,20 @@ function Task4() {
 
     }
     const addEmp = () => {
-        const updateExpeience = [...addExperience, { company: '', role: '', experience: '', startDate: '', endDate: '' }]
+        const updateExpeience = [...addExperience, { company: '', experience: '', startDate: '', endDate: '' }]
         setExperiecne(updateExpeience)
     }
-    console.log(employee.addExperience)
+    const handleExperienceChange = (index, e) => {
+        const { name, value } = e.target;
+        const update = [...addExperience];
+        update[index][name] = value;
+        setExperiecne(update);
+    };
+    const handleEdit = (row) => {
+        setEmployee(row);
+        setEditId(row.id)
+    }
+    console.log(addExperience)
     return (
 
         <div>
@@ -58,59 +68,70 @@ function Task4() {
 
                         <form className='form' onSubmit={handleSubmit}>
 
-                            <div> <input type='text' placeholder='Id' name='empId' value={employee.empId}
-                                onChange={handleChange} />
-                                <input type='text' placeholder='First Name' name='firstname' value={employee.firstname}
-                                    onChange={handleChange} />
-                                <input type='text' placeholder='Last Name' name='lastname' value={employee.lastname}
-                                    onChange={handleChange} />
-                            </div>
                             <div>
+                                <input type='text' placeholder='Id' name='empId'
+                                    value={employee.empId} onChange={handleChange} />
+                                <input type='text' placeholder='First Name' name='firstname'
+                                    value={employee.firstname} onChange={handleChange} />
+                                <input type='text' placeholder='Last Name' name='lastname'
+                                    value={employee.lastname} onChange={handleChange} />
+                            </div>
 
+                            <div>
                                 <input type='text' placeholder='Email' name='email' value={employee.email}
                                     onChange={handleChange} />
-                                     <input type='text' placeholder='gender' name='gender' value={employee.gender}
+                                <input type='text' placeholder='gender' name='gender' value={employee.gender}
                                     onChange={handleChange} />
-                                     <input type='text' placeholder='Role' name='role' value={employee.role}
+                                <input type='text' placeholder='Role' name='role' value={employee.role}
                                     onChange={handleChange} />
                             </div>
                             <div id='submit'>
-                                <button type='submit'  id='btn-submit'>Submit</button>
-
+                                <button type='submit' id='btn-submit'>Submit</button>
                             </div>
-                        </form>
 
+                        </form>
                     </div>
                 </div>
                 <div className='emp-experience'>
                     <div className='container'>
                         <div className='title1'><h4>Add Experience</h4>
-                            <span className='expand'>+expand</span></div>
+                            <span className='expand' onClick={() => setSelected(!selected)}>
+                                {selected ? '-collapse' : '+expand'}</span>
+                            {/* <span className='expand' onClick={() => setSelected(!selected)}>
+                            {selected ? "- collapse" : "+ expand"} */}
+                        </div>
                         {
                             selected &&
                             <div>
                                 {
                                     addExperience.map((add, i) => {
                                         return (
-                                            <div className='experiecne'>
-                                                <div className='experience'>
-                                                    <input type='text' placeholder='Company' />
-                                                    <input type='text' placeholder='Role' />
-                                                    <input type='text' placeholder='Experience' />
+                                            <div className='experience'>
+                                                <div className='company'>
+                                                    <input type='text' placeholder='Company' name='company'
+                                                        value={add.company} onChange={(e) => { handleExperienceChange(i, e) }} />
+                                                    <input type='text' placeholder='Experience' name='experience'
+                                                        value={add.experience} onChange={(e) => { handleExperienceChange(i, e) }} />
                                                 </div>
                                                 <div className='date'>
-                                                    <div> start date<input type='date' /></div>
+                                                    <div> start date<input type='date' name='startDate'
+                                                        value={add.startDate} onChange={(e) => { handleExperienceChange(i, e) }} />
+                                                    </div>
                                                     <div style={{ paddingRight: '600px' }}>
-                                                        end date <input type='date' /></div>
+                                                        end date <input type='date' name='endDate'
+                                                            value={add.endDate} onChange={(e) => { handleExperienceChange(i, e) }} />
+                                                    </div>
                                                 </div>
                                             </div>
 
                                         )
                                     })
                                 }
+                                <button className='btn' onClick={addEmp}>+add</button>
                             </div>
+
                         }
-                        <button className='btn' onClick={addEmp}>+add</button>
+
 
 
                     </div>
@@ -129,7 +150,7 @@ function Task4() {
                             <th>Role</th>
                             <th>Action</th></tr>
                         <tbody>
-                            {list.map((item) => {
+                            {list.map((item, i) => {
                                 return (
                                     <tr>
                                         <td>{item.empId}</td>
@@ -138,7 +159,7 @@ function Task4() {
                                         <td>{item.email}</td>
                                         <td>{item.gender}</td>
                                         <td>{item.role}</td>
-                                        <td><button>edit<MdModeEdit style={{ width: '30%' }} /></button></td>
+                                        <td><button id='edit' onClick={() => { handleEdit(item) }}>edit<MdModeEdit style={{ width: '30%' }} /></button></td>
                                     </tr>
                                 )
                             })}

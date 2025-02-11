@@ -33,8 +33,6 @@ table {
 #emp-table th {
     text-align: left;
     padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
     background-color: aliceblue;
     color: black;
 }
@@ -93,15 +91,7 @@ tr:hover {
 }
 
 .container1 {
-        /* position: fixed;
-        z-index: 1; */
-        /* left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%; */
-        /* display: flex; */
-        /* background-color: lightgrey; */
-        /* width: 800px; */
+        
         border: 1px solid  #ddd;
         /* padding: 50px; */
         margin: 20px auto;
@@ -137,6 +127,11 @@ tr:hover {
     /* box-sizing: border-box; */
     border: 3px solid #ccc;
     /* outline: none; */
+
+    /* padding: 8px 20px;
+    border: 3px solid #ccc;
+    box-sizing: border-box; */
+    flex: 1;
 }
 .title1 {
     display: flex;
@@ -161,19 +156,19 @@ tr:hover {
     background-color: blue;
     color: white;
     padding: 0.5rem 1rem;
-    /* border-radius: 10px solid blue; */
     cursor: pointer;
     position: relative;
     float: right;
     color: white;
     top: -20px;
-    /* right: -20px; */
     cursor: pointer;
-    
-    box-shadow: 0px 5px 5px #ccc;
+    width: 9cap;
+     box-shadow: 0px 5px 5px #ccc;
 }
 #submit {
     text-align:center;
+    padding-top: 1opx;
+    justify-content: center;
 }
 #btn-submit {
      background-color: blue;
@@ -183,6 +178,11 @@ tr:hover {
      width: 10%;
      border-radius: 8px;
      
+}
+#edit {
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 9px;
 }
 ::placeholder {
 
@@ -195,3 +195,96 @@ tr:hover {
      
      ;
   }
+  .experience {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+  .input {
+    display: flex;
+    gap: 10px;
+  }
+  .experience input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width:400px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px;  */
+}
+.form > div {
+    display: flex;
+    gap: 4px; 
+}
+
+
+.experience {
+    display: flex;
+    
+    /* gap: 90px; */
+    /* align-items: center; */
+}
+.experience > div {
+    /* display: flex; */
+    /* gap: 8px;  */
+}
+
+.experience .date {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+}
+.experience .company {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+
+}
+.experience > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* .experience {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.experience > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.experience input {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    font-size: 14px;
+}
+
+.experience input::placeholder {
+    font-size: 14px;
+    color: #999;
+}
+
+.experience .date {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.experience .date input {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+} */
