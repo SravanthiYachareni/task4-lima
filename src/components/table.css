@@ -85,9 +85,20 @@ tr:hover {
     /* background-color: #ddd; */
     border: 2px solid #ddd;
     width: 80%;
+padding-bottom: 0px;
+padding-top: 0px;
 
-
-
+}
+.container-form {
+    border: 0px solid ;
+    /* padding: 50px; */
+    margin: 20px auto;
+    margin-top: auto;
+    padding: 20px;
+   
+    margin-bottom: 20px;
+    
+    width: 80%;
 }
 
 .container1 {
@@ -227,10 +238,7 @@ tr:hover {
     /* gap: 90px; */
     /* align-items: center; */
 }
-.experience > div {
-    /* display: flex; */
-    /* gap: 8px;  */
-}
+
 
 .experience .date {
     display: flex;
@@ -249,42 +257,3 @@ tr:hover {
     align-items: center;
 }
 
-/* .experience {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.experience > div {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.experience input {
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    flex: 1;
-    font-size: 14px;
-}
-
-.experience input::placeholder {
-    font-size: 14px;
-    color: #999;
-}
-
-.experience .date {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.experience .date input {
-    flex: 1;
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-} */

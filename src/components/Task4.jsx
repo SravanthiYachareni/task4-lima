@@ -114,11 +114,11 @@ function Task4() {
                                                         value={add.experience} onChange={(e) => { handleExperienceChange(i, e) }} />
                                                 </div>
                                                 <div className='date'>
-                                                    <div> start date<input type='date' name='startDate'
+                                                    <div> Start date<input type='date' name='startDate'
                                                         value={add.startDate} onChange={(e) => { handleExperienceChange(i, e) }} />
                                                     </div>
                                                     <div style={{ paddingRight: '600px' }}>
-                                                        end date <input type='date' name='endDate'
+                                                        End date <input type='date' name='endDate'
                                                             value={add.endDate} onChange={(e) => { handleExperienceChange(i, e) }} />
                                                     </div>
                                                 </div>
